@@ -1,0 +1,111 @@
+@use 'config/reset.scss';
+@use 'config/cores.scss';
+
+/*mixin do product*/ 
+@mixin elementoForm(){
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 32.66%);
+    column-gap: 1%;
+    row-gap: 4%;
+    width: 100%;
+}
+/*mixin do product*/ 
+
+body{
+    background-color: cores.$corDeFundo;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/*cabeçalho*/ 
+header {
+    background-color: cores.$corDoHeader;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+}
+/*cabeçalho*/
+
+/*menu*/ 
+.menu {
+    display: flex;
+}
+
+    .menu li {
+    font-weight: bold;
+    margin-left: 24px;
+}
+
+.menu li a {
+    color: cores.$corDoMenu;
+    text-decoration: none;
+}
+/*menu*/ 
+
+/*section e produtos*/ 
+section {
+    padding: 56px 0;
+}
+
+.products {
+@include elementoForm()
+}
+
+.product-item img {
+    width: 100%;
+    border-radius: 16px;
+}
+
+.product-button {
+    display: block;
+    background-color: cores.$corBotaoProdutos;
+    color: cores.$corDaletra;
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 8px;
+    margin-top: 8px;
+    text-decoration: none;
+}
+
+.product-button:hover {
+    background-color: cores.$corHoverButton;
+}
+/*section e produtos*/ 
+
+/*resolução*/ 
+@media screen and (max-width: 1023px) {
+    .container {
+        max-width: 80%;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 48.5%);
+        column-gap: 3%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .products {
+        display: block;
+    }
+
+    .product-item  {
+        margin-bottom: 32px;
+    }
+}
+/*resolução*/
